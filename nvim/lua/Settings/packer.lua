@@ -46,5 +46,8 @@ return require('packer').startup(function(use)
 		'nvim-lualine/lualine.nvim',
 		requires = { 'nvim-tree/nvim-web-devicons', opt = true },
 	}
+    -- git plugins
+    use("tpope/vim-fugitive")
+    use("lewis6991/gitsigns.nvim")
 end)
 
