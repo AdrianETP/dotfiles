@@ -45,6 +45,7 @@ return require('packer').startup(function(use)
         "nvim-treesitter/nvim-treesitter"
     }
     use 'nvim-treesitter/nvim-treesitter-context'
+    use "HiPhish/nvim-ts-rainbow2"
 
     -- autoclose
     use 'm4xshen/autoclose.nvim'
@@ -60,6 +61,14 @@ return require('packer').startup(function(use)
     use("lewis6991/gitsigns.nvim")
 
     -- database plugins (dadbod)
-    use"tpope/vim-dadbod"
+    use "tpope/vim-dadbod"
     use "kristijanhusak/vim-dadbod-ui"
+
+    use({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 end)
