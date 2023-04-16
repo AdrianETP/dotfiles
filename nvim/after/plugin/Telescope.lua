@@ -17,8 +17,6 @@ telescope.setup({
     },
     pickers = {
         find_files = {
-            theme = "dropdown",
-            previewer = false,
             prompt_prefix = " "
         },
         lsp_references = {
@@ -26,21 +24,15 @@ telescope.setup({
             initial_mode = "normal"
         },
         buffers = {
-            theme = "dropdown",
-            previewer = false,
             prompt_prefix = " "
         },
         git_files = {
-            theme = "dropdown",
-            previewer = false,
             prompt_prefix = " "
         },
         git_commits = {
-            theme = "dropdown",
             prompt_prefix = " "
         },
         git_branches = {
-            theme = "dropdown",
             prompt_prefix = " "
         },
         -- Default configuration for builtin pickers goes here:

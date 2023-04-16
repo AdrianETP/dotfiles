@@ -90,10 +90,20 @@ _G.packer_plugins = {
     path = "/Users/adrian/.local/share/nvim/site/pack/packer/start/autoclose.nvim",
     url = "https://github.com/m4xshen/autoclose.nvim"
   },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/Users/adrian/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/adrian/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["codeium.vim"] = {
+    loaded = true,
+    path = "/Users/adrian/.local/share/nvim/site/pack/packer/start/codeium.vim",
+    url = "https://github.com/Exafunction/codeium.vim"
   },
   ["github-nvim-theme"] = {
     loaded = true,
@@ -149,6 +159,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/adrian/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
+  },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "/Users/adrian/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-ts-rainbow2"] = {
     loaded = true,

@@ -47,6 +47,8 @@ return require('packer').startup(function(use)
     use 'nvim-treesitter/nvim-treesitter-context'
     use "HiPhish/nvim-ts-rainbow2"
 
+    use "windwp/nvim-ts-autotag"
+
     -- autoclose
     use 'm4xshen/autoclose.nvim'
 
@@ -71,4 +73,10 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
+
+    -- codium (AI Autocompletion)
+    use "Exafunction/codeium.vim"
+
+    -- bufferline
+    use "akinsho/bufferline.nvim"
 end)
