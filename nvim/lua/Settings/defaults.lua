@@ -24,7 +24,7 @@ vim.opt.scrolloff = 8
 vim.opt.guicursor = ""
 
 -- nowrap
- vim.opt.wrap = false
+vim.opt.wrap = false
 
 -- no swapfile
 vim.opt.swapfile = false
@@ -32,7 +32,7 @@ vim.opt.swapfile = false
 -- cursorline
 vim.opt.cursorline = true
 
-vim.opt.mouse = ""
+vim.opt.mouse = "a"
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
