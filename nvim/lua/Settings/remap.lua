@@ -25,7 +25,7 @@ vim.keymap.set({ "n", "v" }, '<leader>t', function()
     vim.cmd("tabnew")
 end)
 -- close tab
-vim.keymap.set({ "n", "v" }, '<C-w><C-w>', function()
+vim.keymap.set({ "n", "v" }, '<leader>w', function()
     vim.cmd("tabclose")
 end)
 -- navigate tabs

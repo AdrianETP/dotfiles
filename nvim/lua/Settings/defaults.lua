@@ -10,9 +10,9 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
 -- colorscheme
-vim.cmd("colorscheme github_dark_default")
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- vim.cmd("colorscheme vscode") -- esto esta en onedark.lua para que el config se active
+--[[ vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" }) ]]
 -- no highlight
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -24,10 +24,15 @@ vim.opt.scrolloff = 8
 vim.opt.guicursor = ""
 
 -- nowrap
-vim.opt.wrap = false
+ vim.opt.wrap = false
 
 -- no swapfile
 vim.opt.swapfile = false
 
 -- cursorline
 vim.opt.cursorline = true
+
+vim.opt.mouse = ""
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true

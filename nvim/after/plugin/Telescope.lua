@@ -27,7 +27,9 @@ telescope.setup({
             prompt_prefix = " "
         },
         git_files = {
-            prompt_prefix = " "
+            prompt_prefix = " ",
+            theme = "dropdown",
+            previewer = false,
         },
         git_commits = {
             prompt_prefix = " "
@@ -59,5 +61,6 @@ vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>pc', builtin.colorscheme, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-vim.keymap.set('n', '<C-g>c', builtin.git_commits, {})
-vim.keymap.set('n', '<C-g>b', builtin.git_branches, {})
+vim.keymap.set('n', '<leader>lc', builtin.git_commits, {})
+vim.keymap.set('n', '<leader>lb', builtin.git_branches, {})
+vim.keymap.set('n', '<leader>ld', builtin.diagnostics, {})

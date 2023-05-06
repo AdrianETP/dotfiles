@@ -4,3 +4,4 @@ vim.keymap.set("n", "<leader>db", function()
 end)
 
 vim.g.db_ui_save_location = '~/Desktop'
+

@@ -15,8 +15,6 @@ return require('packer').startup(function(use)
 
     use { "thePrimeagen/harpoon", requires = 'nvim-lua/plenary.nvim' }
 
-    -- Tokyo night
-    use 'folke/tokyonight.nvim'
 
     -- lsp zero
     use {
@@ -53,7 +51,7 @@ return require('packer').startup(function(use)
     use 'm4xshen/autoclose.nvim'
 
     -- vim-tmux-navigator
-    use 'christoomey/vim-tmux-navigator'
+    -- use 'christoomey/vim-tmux-navigator'
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
@@ -65,14 +63,22 @@ return require('packer').startup(function(use)
     -- database plugins (dadbod)
     use "tpope/vim-dadbod"
     use "kristijanhusak/vim-dadbod-ui"
-
+    -- themes
+    -- Tokyo night
+    use 'folke/tokyonight.nvim'
+    -- github
     use({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
+
+    -- onedark
+    use 'navarasu/onedark.nvim'
     use {
         'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
         end
     }
+    -- vscode
+    use 'Mofiqul/vscode.nvim'
 
     -- codium (AI Autocompletion)
     use "Exafunction/codeium.vim"
