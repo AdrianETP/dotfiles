@@ -1,8 +1,8 @@
-local lsp = require('lsp-zero').preset({})
+local Lsp = require('lsp-zero').preset({})
 local cmp = require("cmp")
 
-lsp.on_attach(function(_, bufnr)
-    lsp.default_keymaps({ buffer = bufnr })
+Lsp.on_attach(function(_, bufnr)
+    Lsp.default_keymaps({ buffer = bufnr })
     vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>")
     vim.keymap.set("n", "<leader>lf", function()
         vim.lsp.buf.format()
@@ -17,11 +17,19 @@ end)
 
 
 -- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+require('lspconfig').lua_ls.setup(Lsp.nvim_lua_ls())
 
 cmp.setup({
     mapping = {
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), }
-})
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), },
+    window = {
+        completion = cmp.config.window.bordered(),
+    },
+}
 
-lsp.setup()
+)
+require("cmp").config.formatting = {
+    format = require("tailwindcss-colorizer-cmp").formatter
+}
+
+Lsp.setup()

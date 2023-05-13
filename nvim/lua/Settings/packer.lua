@@ -34,6 +34,7 @@ return require('packer').startup(function(use)
 
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },     -- Required
+            { 'hrsh7th/cmp-buffer' },   -- Optional
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
             { 'L3MON4D3/LuaSnip' },     -- Required
         }
@@ -80,9 +81,43 @@ return require('packer').startup(function(use)
     -- vscode
     use 'Mofiqul/vscode.nvim'
 
+    -- nord
+    use 'shaunsingh/nord.nvim'
+
     -- codium (AI Autocompletion)
     use "Exafunction/codeium.vim"
 
     -- bufferline
     use "akinsho/bufferline.nvim"
+
+    -- colorizer (for tailwind)
+    use 'NvChad/nvim-colorizer.lua'
+
+    -- nvim-cmp-tailwind
+    use({
+        "roobert/tailwindcss-colorizer-cmp.nvim",
+        -- optionally, override the default options:
+        config = function()
+            require("tailwindcss-colorizer-cmp").setup({
+                color_square_width = 2,
+            })
+        end
+    })
+    -- Packer
+    use({
+        "folke/noice.nvim",
+        config = function()
+            require("noice").setup({
+                -- add any options here
+            })
+        end,
+        requires = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
+            "rcarriga/nvim-notify",
+        }
+    })
 end)
