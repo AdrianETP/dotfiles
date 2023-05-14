@@ -19,14 +19,14 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set({ "n", "v" }, '<leader>y', '"+y')
 vim.keymap.set({ "n", "v" }, '<leader>p', '"+p')
 
--- tabs
--- new tab
+-- buffers
+-- new buffer
 vim.keymap.set({ "n", "v" }, '<leader>t', function()
-    vim.cmd("tabnew")
+    vim.cmd("enew")
 end)
 -- close tab
 vim.keymap.set({ "n", "v" }, '<leader>w', function()
-    vim.cmd("tabclose")
+    vim.cmd("q")
 end)
 -- navigate tabs
 vim.keymap.set("n", "<tab>", function()

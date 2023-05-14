@@ -93,28 +93,22 @@ return require('packer').startup(function(use)
     -- colorizer (for tailwind)
     use 'NvChad/nvim-colorizer.lua'
 
-    -- nvim-cmp-tailwind
-    use({
-        "roobert/tailwindcss-colorizer-cmp.nvim",
-        -- optionally, override the default options:
-        config = function()
-        end
-    })
-    -- Packer
-    use({
-        "folke/noice.nvim",
-        config = function()
-            require("noice").setup({
-                -- add any options here
-            })
-        end,
-        requires = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-            "MunifTanjim/nui.nvim",
-            -- OPTIONAL:
-            --   `nvim-notify` is only needed, if you want to use the notification view.
-            --   If not available, we use `mini` as the fallback
-            "rcarriga/nvim-notify",
-        }
-    })
+
+    -- noice
+    -- use({
+    --     "folke/noice.nvim",
+    --     config = function()
+    --         require("noice").setup({
+    --             -- add any options here
+    --         })
+    --     end,
+    --     requires = {
+    --         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    --         "MunifTanjim/nui.nvim",
+    --         -- OPTIONAL:
+    --         --   `nvim-notify` is only needed, if you want to use the notification view.
+    --         --   If not available, we use `mini` as the fallback
+    --         "rcarriga/nvim-notify",
+    --     }
+    -- })
 end)
