@@ -37,6 +37,10 @@ telescope.setup({
         git_branches = {
             prompt_prefix = " "
         },
+        colorscheme = {
+            theme = "dropdown",
+            previewer = false
+        }
         -- Default configuration for builtin pickers goes here:
         -- picker_name = {
         --   picker_config_key = value,
@@ -61,6 +65,7 @@ vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>pc', builtin.colorscheme, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+vim.keymap.set('n', '<leader>lj', builtin.jumplist, {})
 vim.keymap.set('n', '<leader>lc', builtin.git_commits, {})
 vim.keymap.set('n', '<leader>lb', builtin.git_branches, {})
 vim.keymap.set('n', '<leader>ld', builtin.diagnostics, {})
