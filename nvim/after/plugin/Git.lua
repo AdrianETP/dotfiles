@@ -1,8 +1,3 @@
-vim.keymap.set("n", "<leader>gs", ":Git<CR>")
-vim.keymap.set("n", "<leader>gc", ":Git commit<CR>")
-vim.keymap.set("n", "<leader>gA", ":Git commit --amend<CR>")
-vim.keymap.set("n", "<leader>gP", ":Git push -u origin ")
-vim.keymap.set("n", "<leader>gp", ":Git pull<CR>")
 
 require('gitsigns').setup {
     signs = {
