@@ -60,6 +60,8 @@ return require('lazy').setup({
                     },
                     git_files = {
                         prompt_prefix = " ",
+                        theme = "dropdown",
+                        previewer = false
                     },
                     git_commits = {
                         prompt_prefix = " "
@@ -147,7 +149,7 @@ return require('lazy').setup({
             {
                 -- Optional
                 'williamboman/mason.nvim',
-                run = function()
+                config = function()
                     pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
@@ -196,22 +198,80 @@ return require('lazy').setup({
     },
     -- treesitter
     {
+        'm4xshen/autoclose.nvim',
+        config = function()
+            require('autoclose').setup()
+        end
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
+        lazy = false,
         dependencies = {
-
             'nvim-treesitter/nvim-treesitter-context',
             "HiPhish/nvim-ts-rainbow2",
+        },
+        config = function()
+            require 'nvim-treesitter.configs'.setup {
+                -- A list of parser names, or "all" (the five listed parsers should always be installed)
+                ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
 
-            "windwp/nvim-ts-autotag",
+                -- Install parsers synchronously (only applied to `ensure_installed`)
+                sync_install = false,
 
-            -- autoclose
-            'm4xshen/autoclose.nvim',
-        }
+                -- Automatically install missing parsers when entering buffer
+                -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+                auto_install = true,
+
+                -- List of parsers to ignore installing (for "all")
+                ignore_install = { "javascript" },
+
+                ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+                -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+
+                highlight = {
+                    enable = true,
+                    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+                    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+                    -- the name of the parser)
+                    -- list of language that will be disabled
+                    --    disable = { "c", "rust" },
+                    -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
+
+                    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+                    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+                    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+                    -- Instead of true it can also be a list of languages
+                    additional_vim_regex_highlighting = false,
+                },
+                rainbow = {
+                    enable = true,
+                },
+                autotag = {
+                    enable = true,
+                }
+            }
+
+            require 'treesitter-context'.setup {
+                enable = true,            -- Enable this plugin (Can be enabled/disabled later via commands)
+                max_lines = 0,            -- How many lines the window should span. Values <= 0 mean no limit.
+                min_window_height = 0,    -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+                line_numbers = true,
+                multiline_threshold = 20, -- Maximum number of lines to collapse for a single context line
+                trim_scope = 'outer',     -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+                mode = 'cursor',          -- Line used to calculate context. Choices: 'cursor', 'topline'
+                -- Separator between context and content. Should be a single character string, like '-'.
+                -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+                separator = nil,
+                zindex = 20, -- The Z-index of the context window
+            }
+        end
 
     },
+    {
+        "windwp/nvim-ts-autotag",
+        ft = { "html", "typescript", "typescriptreact", "javascript", "javascriptreact" }
+    },
 
-    -- vim-tmux-navigator
-    --  'christoomey/vim-tmux-navigator'
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
@@ -227,7 +287,7 @@ return require('lazy').setup({
             vim.keymap.set("n", "<leader>gP", ":Git push -u origin ")
             vim.keymap.set("n", "<leader>gp", ":Git pull<CR>")
         end,
-        keys = { "<leader>gs", "<leader>gc"  , "<leader>gA", "<leader>gP", "<leader>gp"}
+        keys = { "<leader>gs", "<leader>gc", "<leader>gA", "<leader>gP", "<leader>gp" }
     },
     "lewis6991/gitsigns.nvim",
 
@@ -254,8 +314,6 @@ return require('lazy').setup({
     -- github
     --     ({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
 
-    -- onedark
-    'navarasu/onedark.nvim',
     {
         'numToStr/Comment.nvim',
         config = function()
@@ -264,29 +322,61 @@ return require('lazy').setup({
         keys = { "gcc", "gbb", "gc", "gb" }
     },
     -- vscode
-    --    'Mofiqul/vscode.nvim'
+    'Mofiqul/vscode.nvim',
 
     -- nord
-    --  'shaunsingh/nord.nvim'
+    {
+        'shaunsingh/nord.nvim',
+        config = function()
+            vim.cmd('colorscheme nord')
+        end
+
+    },
+
 
     -- codium (AI Autocompletion)
-    --  "Exafunction/codeium.vim"
+    "Exafunction/codeium.vim",
 
     -- bufferline
     "akinsho/bufferline.nvim",
 
     -- colorizer (for tailwind)
-    'NvChad/nvim-colorizer.lua',
+    {
+        'NvChad/nvim-colorizer.lua',
+        ft = { "typescriptreact", "astro", "javascriptreact", "javascript", "typescript", "css" },
+        opts = {
+            filetypes = { "*" },
+            user_default_options = {
+                RGB = true,          -- #RGB hex codes
+                RRGGBB = true,       -- #RRGGBB hex codes
+                names = true,        -- "Name" codes like Blue or blue
+                RRGGBBAA = false,    -- #RRGGBBAA hex codes
+                AARRGGBB = false,    -- 0xAARRGGBB hex codes
+                rgb_fn = false,      -- CSS rgb() and rgba() functions
+                hsl_fn = false,      -- CSS hsl() and hsla() functions
+                css = false,         -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+                css_fn = false,      -- Enable all CSS *functions*: rgb_fn, hsl_fn
+                -- Available modes for `mode`: foreground, background,  virtualtext
+                mode = "background", -- Set the display mode.
+                -- Available methods are false / true / "normal" / "lsp" / "both"
+                -- True is same as normal
+                tailwind = true,                                 -- Enable tailwind colors
+                -- parsers can contain values used in |user_default_options|
+                sass = { enable = false, parsers = { "css" }, }, -- Enable sass colors
+                virtualtext = "■",
+                -- update color values even if buffer is not focused
+                -- example use: cmp_menu, cmp_docs
+                always_update = true
+            },
+            -- all the sub-options of filetypes apply to buftypes
+            buftypes = {},
+        },
+    },
 
 
     -- noice
     {
         "folke/noice.nvim",
-        config = function()
-            require("noice").setup({
-                -- add any options here
-            })
-        end,
         dependencies = {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
