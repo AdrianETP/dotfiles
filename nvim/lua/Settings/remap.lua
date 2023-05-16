@@ -26,12 +26,5 @@ vim.keymap.set({ "n", "v" }, '<leader>t', function()
 end)
 -- close tab
 vim.keymap.set({ "n", "v" }, '<leader>w', function()
-    vim.cmd("q")
-end)
--- navigate tabs
-vim.keymap.set("n", "<tab>", function()
-    vim.cmd("tabnext")
-end)
-vim.keymap.set("n", "<S-tab>", function()
-    vim.cmd("tabprev")
+    vim.cmd("bdelete")
 end)

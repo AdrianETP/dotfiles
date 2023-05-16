@@ -1,4 +1,4 @@
 require("Settings.remap")
 require("Settings.defaults")
-require("Settings.packer")
+require("Settings.lazy")
 

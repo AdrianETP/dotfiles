@@ -13,7 +13,7 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
 -- colorscheme
-vim.cmd("colorscheme nord") -- esto esta en onedark.lua para que el config se active
+-- vim.cmd("colorscheme nord") -- esto esta en onedark.lua para que el config se active
 --[[ vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" }) ]]
 -- no highlight
