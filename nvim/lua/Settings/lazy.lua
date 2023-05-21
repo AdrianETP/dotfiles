@@ -17,7 +17,8 @@ vim.opt.rtp:prepend(lazypath)
 return require('lazy').setup({
     {
         "nvim-telescope/telescope-file-browser.nvim",
-        keys = "<leader>pv"
+        keys = "<leader>pv",
+        event = "BufEnter",
 
     },
     -- Telescope (fuzzy finder)
@@ -131,6 +132,7 @@ return require('lazy').setup({
             '<leader>lc',
             '<leader>lb',
             '<leader>ld',
+            '<leader>pv',
         }
 
     },
@@ -308,12 +310,7 @@ return require('lazy').setup({
         end,
         keys = "<leader>db"
     },
-    -- themes
-    -- Tokyo night
-    --      'folke/tokyonight.nvim'
-    -- github
-    --     ({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
-
+    -- comment nvim
     {
         'numToStr/Comment.nvim',
         config = function()
@@ -321,15 +318,38 @@ return require('lazy').setup({
         end,
         keys = { "gcc", "gbb", "gc", "gb" }
     },
+    -- themes
+    -- github
+    {
+        'projekt0n/github-nvim-theme',
+        tag = 'v0.0.7',
+        -- config = function()
+        --     vim.cmd('colorscheme github_dimmed')
+        -- end
+    },
+
+    -- onedark
+    {
+        "navarasu/onedark.nvim",
+        config = function()
+            require('onedark').setup {
+                style = 'cool'
+            }
+            vim.cmd('colorscheme onedark')
+        end
+    },
     -- vscode
     'Mofiqul/vscode.nvim',
 
+
+    -- tokyo night
+    'folke/tokyonight.nvim',
     -- nord
     {
         'shaunsingh/nord.nvim',
-        config = function()
+        --[[ config = function()
             vim.cmd('colorscheme nord')
-        end
+        end ]]
 
     },
 
@@ -357,7 +377,7 @@ return require('lazy').setup({
                 css = false,         -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
                 css_fn = false,      -- Enable all CSS *functions*: rgb_fn, hsl_fn
                 -- Available modes for `mode`: foreground, background,  virtualtext
-                mode = "background", -- Set the display mode.
+                mode = "foreground", -- Set the display mode.
                 -- Available methods are false / true / "normal" / "lsp" / "both"
                 -- True is same as normal
                 tailwind = true,                                 -- Enable tailwind colors
@@ -380,6 +400,27 @@ return require('lazy').setup({
         dependencies = {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
-        }
+        },
+        config = function()
+            require("noice").setup({
+                lsp = {
+                    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+                    override = {
+                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                        ["vim.lsp.util.stylize_markdown"] = true,
+                        ["cmp.entry.get_documentation"] = true,
+                    },
+                },
+                -- you can enable a preset for easier configuration
+                presets = {
+                    bottom_search = false,        -- use a classic bottom cmdline for search
+                    command_palette = true,       -- position the cmdline and popupmenu together
+                    long_message_to_split = true, -- long messages will be sent to a split
+                    inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+                    lsp_doc_border = false,       -- add a border to hover docs and signature help
+                },
+            })
+        end
+
     },
 })
