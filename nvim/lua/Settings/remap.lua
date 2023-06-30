@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", function() vim.cmd("Ex") end)
 -- quit
 vim.keymap.set("n", "<leader><Enter>", function()
-    vim.cmd("w")
     vim.cmd("qa!")
 end)
 
@@ -21,10 +20,10 @@ vim.keymap.set({ "n", "v" }, '<leader>p', '"+p')
 
 -- buffers
 -- new buffer
-vim.keymap.set({ "n", "v" }, '<leader>t', function()
+--[[ vim.keymap.set({ "n", "v" }, '<leader>t', function()
     vim.cmd("enew")
 end)
 -- close tab
 vim.keymap.set({ "n", "v" }, '<leader>w', function()
     vim.cmd("bdelete")
-end)
+end) ]]

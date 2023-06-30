@@ -136,9 +136,31 @@ return require('lazy').setup({
         }
 
     },
-    -- packer
 
-    --   { "thePrimeagen/harpoon", dependencies = 'nvim-lua/plenary.nvim' }
+    {
+        "thePrimeagen/harpoon",
+        dependencies = 'nvim-lua/plenary.nvim',
+        keys = {
+            '<leader>m',
+            '<C-y>',
+            '<C-t>',
+            '<C-n>',
+            '<C-s>',
+            '<C-e>'
+        },
+        config = function()
+            local mark = require("harpoon.mark")
+            local ui = require("harpoon.ui")
+            vim.keymap.set("n", "<leader>m", function() mark.add_file() end)
+            vim.keymap.set("n", "<C-e>", function() ui.toggle_quick_menu() end)
+            vim.keymap.set("n", "<C-y>", function() ui.nav_file(1) end)
+            vim.keymap.set("n", "<C-t>", function() ui.nav_file(2) end)
+            vim.keymap.set("n", "<C-n>", function() ui.nav_file(3) end)
+            vim.keymap.set("n", "<C-s>", function() ui.nav_file(4) end)
+        end
+
+
+    },
 
 
     -- lsp zero
@@ -335,7 +357,7 @@ return require('lazy').setup({
             require('onedark').setup {
                 style = 'cool'
             }
-            vim.cmd('colorscheme onedark')
+            --vim.cmd('colorscheme onedark')
         end
     },
     -- vscode
@@ -343,7 +365,16 @@ return require('lazy').setup({
 
 
     -- tokyo night
-    'folke/tokyonight.nvim',
+    {
+        'folke/tokyonight.nvim',
+        -- config = function() vim.cmd('colorscheme tokyonight') end,
+    },
+    {
+        'Mofiqul/dracula.nvim',
+        config = function()
+            vim.cmd('colorscheme dracula')
+        end
+    },
     -- nord
     {
         'shaunsingh/nord.nvim',
@@ -357,8 +388,6 @@ return require('lazy').setup({
     -- codium (AI Autocompletion)
     "Exafunction/codeium.vim",
 
-    -- bufferline
-    "akinsho/bufferline.nvim",
 
     -- colorizer (for tailwind)
     {
@@ -377,7 +406,7 @@ return require('lazy').setup({
                 css = false,         -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
                 css_fn = false,      -- Enable all CSS *functions*: rgb_fn, hsl_fn
                 -- Available modes for `mode`: foreground, background,  virtualtext
-                mode = "foreground", -- Set the display mode.
+                mode = "background", -- Set the display mode.
                 -- Available methods are false / true / "normal" / "lsp" / "both"
                 -- True is same as normal
                 tailwind = true,                                 -- Enable tailwind colors
