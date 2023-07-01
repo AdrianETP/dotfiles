@@ -35,7 +35,7 @@ vim.opt.swapfile = false
 -- cursorline
 vim.opt.cursorline = true
 
-vim.opt.mouse = "a"
+ vim.opt.mouse = "a"
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
