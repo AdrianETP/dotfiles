@@ -35,7 +35,11 @@ vim.opt.swapfile = false
 -- cursorline
 vim.opt.cursorline = true
 
- vim.opt.mouse = "a"
+vim.opt.mouse = "a"
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+vim.api.nvim_create_user_command('Diff', 'Gvdiffsplit', {})
+vim.api.nvim_create_user_command('Q', 'q', {})
+vim.api.nvim_create_user_command('W', 'w', {})
