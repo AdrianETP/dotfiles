@@ -1,4 +1,6 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
+pane_frames false
+mouse_mode true
 keybinds clear-defaults=true{
     unbind "Ctrl p"
     unbind "Ctrl n"
@@ -137,6 +139,7 @@ keybinds clear-defaults=true{
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
     }
     shared_except "locked" {
+        bind "Ctrl z" { ToggleFocusFullscreen; }
         bind "Ctrl g" { SwitchToMode "Locked"; }
         bind "Ctrl q" { Quit; }
         bind "Alt n" { NewPane; }

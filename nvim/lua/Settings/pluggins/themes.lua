@@ -11,15 +11,20 @@ return {
     -- onedark
     {
         "navarasu/onedark.nvim",
-        config = function()
-            require('onedark').setup {
-                style = 'cool'
-            }
-            --vim.cmd('colorscheme onedark')
-        end
+        -- config = function()
+        --     require('onedark').setup {
+        --         style = 'cool'
+        --     }
+        --     --vim.cmd('colorscheme onedark')
+        -- end
     },
     -- vscode
-    'Mofiqul/vscode.nvim',
+    {
+        'Mofiqul/vscode.nvim',
+        config = function()
+            vim.cmd('colorscheme vscode')
+        end
+    },
 
 
     -- tokyo night
@@ -29,9 +34,9 @@ return {
     },
     {
         'Mofiqul/dracula.nvim',
-        config = function()
+        --[[ config = function()
             vim.cmd('colorscheme dracula')
-        end
+        end ]]
     },
     -- nord
     {

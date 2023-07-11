@@ -28,62 +28,6 @@ return {
 
 
     -- lsp zero
-    {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        dependencies = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
-            {
-                -- Optional
-                'williamboman/mason.nvim',
-                config = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
-            { 'hrsh7th/cmp-buffer' },   -- Optional
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
-        },
-        config = function()
-            local lsp = require('lsp-zero').preset({})
-            local cmp = require("cmp")
-
-            lsp.on_attach(function(_, bufnr)
-                lsp.default_keymaps({ buffer = bufnr })
-                vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>")
-                vim.keymap.set("n", "<leader>lf", function()
-                    vim.lsp.buf.format()
-                end)
-                vim.keymap.set("n", "<leader>a", function()
-                    vim.lsp.buf.code_action()
-                end)
-                vim.keymap.set("n", "<leader>rn", function()
-                    vim.lsp.buf.rename()
-                end)
-            end)
-
-
-            -- (Optional) Configure lua language server for neovim
-            require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
-            cmp.setup({
-                mapping = {
-                    ['<CR>'] = cmp.mapping.confirm({ select = true }), },
-                window = {
-                    completion = cmp.config.window.bordered(),
-                },
-            }
-
-            )
-
-            lsp.setup()
-        end
-    },
     -- treesitter
     {
         'm4xshen/autoclose.nvim',
@@ -169,18 +113,6 @@ return {
     },
     -- git plugins
 
-    {
-        "tpope/vim-fugitive",
-        config = function()
-            vim.keymap.set("n", "<leader>gs", ":Git<CR>")
-            vim.keymap.set("n", "<leader>gc", ":Git commit<CR>")
-            vim.keymap.set("n", "<leader>gA", ":Git commit --amend<CR>")
-            vim.keymap.set("n", "<leader>gP", ":Git push -u origin ")
-            vim.keymap.set("n", "<leader>gp", ":Git pull<CR>")
-        end,
-        keys = { "<leader>gs", "<leader>gc", "<leader>gA", "<leader>gP", "<leader>gp" }
-    },
-    "lewis6991/gitsigns.nvim",
 
     -- database plugins (dadbod)
     {
@@ -208,47 +140,6 @@ return {
     },
     -- themes
     -- github
-    {
-        'projekt0n/github-nvim-theme',
-        tag = 'v0.0.7',
-        -- config = function()
-        --     vim.cmd('colorscheme github_dimmed')
-        -- end
-    },
-
-    -- onedark
-    {
-        "navarasu/onedark.nvim",
-        config = function()
-            require('onedark').setup {
-                style = 'cool'
-            }
-            --vim.cmd('colorscheme onedark')
-        end
-    },
-    -- vscode
-    'Mofiqul/vscode.nvim',
-
-
-    -- tokyo night
-    {
-        'folke/tokyonight.nvim',
-        -- config = function() vim.cmd('colorscheme tokyonight') end,
-    },
-    {
-        'Mofiqul/dracula.nvim',
-        config = function()
-            vim.cmd('colorscheme dracula')
-        end
-    },
-    -- nord
-    {
-        'shaunsingh/nord.nvim',
-        --[[ config = function()
-            vim.cmd('colorscheme nord')
-        end ]]
-
-    },
 
 
 
@@ -285,14 +176,14 @@ return {
             buftypes = {},
         },
     },
-
-
     {
-        "nvim-neo-tree/neo-tree.nvim",
-        keys = {
-            { "<C-e>", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
-        },
+        "nvim-tree/nvim-tree.lua",
         config = function()
-            require("neo-tree").setup()
+            require "nvim-tree".setup()
+            vim.keymap.set("n", "<leader>pv","<Cmd>NvimTreeToggle<CR>")
         end,
-    } }
+        keys="<leader>pv"
+    }
+
+
+}
