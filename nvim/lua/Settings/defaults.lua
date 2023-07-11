@@ -40,6 +40,5 @@ vim.opt.mouse = "a"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-vim.api.nvim_create_user_command('Diff', 'Gvdiffsplit', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
 vim.api.nvim_create_user_command('W', 'w', {})

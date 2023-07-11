@@ -46,6 +46,9 @@ return {
                 ['<CR>'] = cmp.mapping.confirm({ select = true }), },
             window = {
                 completion = cmp.config.window.bordered(),
+                
+
+
             },
         }
 
