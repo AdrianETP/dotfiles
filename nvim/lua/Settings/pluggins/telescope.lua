@@ -83,7 +83,6 @@ return {
         '<leader>lc',
         '<leader>lb',
         '<leader>ld',
-        '<leader>pv',
     }
 
 }

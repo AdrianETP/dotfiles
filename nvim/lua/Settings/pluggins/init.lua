@@ -81,15 +81,5 @@ return {
             -- all the sub-options of filetypes apply to buftypes
             buftypes = {},
         },
-    },
-    {
-        "nvim-tree/nvim-tree.lua",
-        config = function()
-            require "nvim-tree".setup()
-            vim.keymap.set("n", "<leader>pv", "<Cmd>NvimTreeToggle<CR>")
-        end,
-        keys = "<leader>pv"
     }
-
-
 }

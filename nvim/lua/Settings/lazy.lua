@@ -11,7 +11,4 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 vim.opt.rtp:prepend(lazypath)
-
--- Only required if you have packer configured as `opt`
-
 return require('lazy').setup("Settings.pluggins")
