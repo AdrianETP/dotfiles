@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 -- explore
-vim.keymap.set("n", "<leader>pv", function() vim.cmd("Ex") end)
+vim.keymap.set("n", "<leader>pv", function()
+    vim.cmd("Ex")
+end)
 -- quit
 vim.keymap.set("n", "<leader><Enter>", function()
     vim.cmd("qa!")
