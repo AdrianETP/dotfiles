@@ -1,13 +1,13 @@
 # shift focus
-alt - h : yabai -m window --focus west
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - l : yabai -m window --focus east
+ctrl+alt - h : yabai -m window --focus west
+ctrl+alt - j : yabai -m window --focus south
+ctrl+alt - k : yabai -m window --focus north
+ctrl+alt - l : yabai -m window --focus east
 
-shift + alt - h : yabai -m window --warp west
-shift + alt - j : yabai -m window --warp south
-shift + alt - k : yabai -m window --warp north
-shift + alt - l : yabai -m window --warp east
+shift +ctrl+ alt - h : yabai -m window --warp west
+shift + ctrl+alt - j : yabai -m window --warp south
+shift + ctrl+alt - k : yabai -m window --warp north
+shift + ctrl+alt - l : yabai -m window --warp east
 
 shift + alt - space : yabai -m space --rotate 90
 

@@ -7,10 +7,11 @@ return {
 
         },
         config = function()
+            -- local fb_actions = require "telescope".extensions.file_browser.actions
             local telescope = require("telescope")
             telescope.setup({
                 extensions = {
-                    file_browser = {
+                    --[[                     file_browser = {
                         -- disables netrw and use telescope-file-browser in its place
                         hijack_netrw = true,
                         initial_mode = "normal",
@@ -19,10 +20,11 @@ return {
                                 -- your custom insert mode mappings
                             },
                             ["n"] = {
+                                ["-"] = fb_actions.goto_parent_dir,
 
                             },
                         },
-                    },
+                    }, ]]
                 },
                 defaults = {
                     -- Default configuration for telescope goes here:
@@ -74,7 +76,7 @@ return {
                     -- builtin picker
                 },
             })
-            require("telescope").load_extension "file_browser"
+            -- require("telescope").load_extension "file_browser"
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
             vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
@@ -86,12 +88,12 @@ return {
             vim.keymap.set('n', '<leader>lc', builtin.git_commits, {})
             vim.keymap.set('n', '<leader>lb', builtin.git_branches, {})
             vim.keymap.set('n', '<leader>ld', builtin.diagnostics, {})
-            vim.api.nvim_set_keymap(
+            --[[ vim.api.nvim_set_keymap(
                 "n",
                 "<leader>pv",
                 ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
                 { noremap = true }
-            )
+            ) ]]
             -- open file_browser with the path of the current buffer
         end,
         keys = {
@@ -105,14 +107,14 @@ return {
             '<leader>lc',
             '<leader>lb',
             '<leader>ld',
-            '<leader>pv',
+            -- '<leader>pv',
         }
 
 
     },
-    {
+    --[[ {
         'nvim-telescope/telescope-file-browser.nvim',
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-    }
+    } ]]
 
 }

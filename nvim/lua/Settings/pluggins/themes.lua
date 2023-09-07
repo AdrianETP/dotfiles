@@ -6,6 +6,7 @@ return {
         -- config = function()
         --     vim.cmd('colorscheme github_dimmed')
         -- end
+        keys = "<leader>pc"
     },
 
     -- onedark
@@ -17,23 +18,29 @@ return {
         --     }
         --     --vim.cmd('colorscheme onedark')
         -- end
+        keys = "<leader>pc"
     },
     -- vscode
     {
         'Mofiqul/vscode.nvim',
+        keys = "<leader>pc"
     },
 
 
     -- tokyo night
     {
         'folke/tokyonight.nvim',
-        -- config = function() vim.cmd('colorscheme tokyonight') end,
+
+        config = function()
+            vim.cmd("colorscheme tokyonight")
+        end
     },
     {
         'Mofiqul/dracula.nvim',
-        --[[ config = function()
-            vim.cmd('colorscheme dracula')
-        end ]]
+        -- config = function()
+        --     vim.cmd('colorscheme dracula')
+        -- end,
+        keys = "<leader>pc"
     },
     -- nord
     {
@@ -41,14 +48,16 @@ return {
         --[[ config = function()
             vim.cmd('colorscheme nord')
         end ]]
+        keys = "<leader>pc"
 
     },
     {
         "ellisonleao/gruvbox.nvim",
         priority = 1000,
         config = function()
-            vim.cmd('colorscheme gruvbox')
-        end
+            --vim.cmd('colorscheme gruvbox')
+        end,
+        keys = "<leader>pc"
     }
 
 }

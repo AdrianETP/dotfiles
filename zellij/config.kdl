@@ -1,6 +1,6 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 pane_frames false
-mouse_mode true
+mouse_mode false
 keybinds clear-defaults=true{
     unbind "Ctrl p"
     unbind "Ctrl n"
@@ -164,7 +164,7 @@ keybinds clear-defaults=true{
         bind "Ctrl k" { SwitchToMode "Resize"; }
     }
     shared_except "scroll" "locked" {
-        bind "Ctrl s" { SwitchToMode "Scroll"; }
+        bind "Ctrl e" { SwitchToMode "Scroll"; }
     }
     shared_except "session" "locked" {
         bind "Ctrl l" { SwitchToMode "Session"; }
@@ -261,7 +261,7 @@ plugins {
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
- theme "gruvbox-dark"
+ theme "dracula"
 
 // The name of the default layout to load on startup
 // Default: "default"
