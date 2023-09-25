@@ -24,7 +24,7 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 
 -- cursor
--- vim.opt.guicursor = ""
+vim.opt.guicursor = ""
 
 -- nowrap
 vim.opt.wrap = false

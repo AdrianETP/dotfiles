@@ -1,4 +1,11 @@
+function setTransparent()
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
+
 return {
+
+
 
     {
         'projekt0n/github-nvim-theme',
@@ -31,9 +38,6 @@ return {
     {
         'folke/tokyonight.nvim',
 
-        config = function()
-            vim.cmd("colorscheme tokyonight")
-        end
     },
     {
         'Mofiqul/dracula.nvim',
@@ -53,11 +57,21 @@ return {
     },
     {
         "ellisonleao/gruvbox.nvim",
-        priority = 1000,
         config = function()
             --vim.cmd('colorscheme gruvbox')
         end,
         keys = "<leader>pc"
+    },
+
+    {
+        'rose-pine/neovim',
+        name = 'rose-pine',
+
+        config = function()
+            vim.cmd("colorscheme rose-pine")
+            setTransparent()
+        end
+
     }
 
 }

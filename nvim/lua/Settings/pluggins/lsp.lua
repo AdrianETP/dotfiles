@@ -29,7 +29,7 @@ return {
             vim.keymap.set("n", "<leader>lf", function()
                 vim.lsp.buf.format()
             end)
-            vim.keymap.set("n", "<leader>a", function()
+            vim.keymap.set("n", "<leader>ca", function()
                 vim.lsp.buf.code_action()
             end)
             vim.keymap.set("n", "<leader>rn", function()

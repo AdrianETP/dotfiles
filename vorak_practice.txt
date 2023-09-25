@@ -1,0 +1,11 @@
+the big brown fox jumps over the lazy dog
+the big brown fax jumps aver the lazy dog
+the big brown fox jumps over the lazy dog
+the big brown fox jumps over the lazy dog
+
+
+
+hello my name is Adrian and im typing using dvorak
+
+
+the keybindings in neovim will be dificult to relearn
