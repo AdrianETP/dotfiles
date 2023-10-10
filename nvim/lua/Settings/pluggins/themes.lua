@@ -38,6 +38,10 @@ return {
     {
         'folke/tokyonight.nvim',
 
+        config = function()
+            vim.cmd("colorscheme tokyonight-night")
+            setTransparent()
+        end
     },
     {
         'Mofiqul/dracula.nvim',
@@ -67,10 +71,6 @@ return {
         'rose-pine/neovim',
         name = 'rose-pine',
 
-        config = function()
-            vim.cmd("colorscheme rose-pine")
-            setTransparent()
-        end
 
     }
 

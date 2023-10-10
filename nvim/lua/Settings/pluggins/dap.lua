@@ -24,6 +24,7 @@ return {
             vim.keymap.set('n' , '<leader>bc','<Cmd>DapContinue<CR>')
             vim.keymap.set('n' , '<leader>bl','<Cmd>DapStepInto<CR>')
             vim.keymap.set('n' , '<leader>bh','<Cmd>DapStepOver<CR>')
+            vim.keymap.set('n', '<leader>bq', '<Cmd>DapTerminate<CR>')
 
         end
 
